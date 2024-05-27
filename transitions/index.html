@@ -51,6 +51,23 @@
 			>
 			<br />
 			<br />
+			<span
+				>Untuk menerapkan transisi ada dua step mudah, step pertama kita harus
+				ada state awal dari si elemen yang mau dikasih transisi, dan juga harus
+				ada state akhiran dari elemen tersebut, lalu terapkan `transition` pada
+				css elemennya</span
+			>
+			<br />
+			<br />
+			<code>
+				/* state elemen awalan */ <br />
+				h1 { color: yellow; transition: color 0.3s ease; } <br /><br />
+				/* state elemen akhiran, dikombinasikan dengan event tertentu seperti
+				hover atau yang lain lain*/ <br />
+				h1:hover { color: green; } <br />
+			</code>
+			<br />
+			<br />
 			<span>
 				transition: [css-property yang mau di transisiin [durasi transisi]
 				[transisi-timing-function]
