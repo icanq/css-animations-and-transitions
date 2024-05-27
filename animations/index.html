@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Animasi</title>
+	</head>
+	<style>
+		@import url("https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap");
+
+		body {
+			background-color: #001111;
+			color: white;
+			font-family: "Reddit Mono", "Arial";
+		}
+
+		h1 {
+			color: yellow;
+			transition: color 0.3s ease;
+		}
+
+		h1:hover {
+			color: green;
+		}
+
+    /* untuk membuat animasi, itu kurang lebih sama seperti transisi yang kita buat sebelumnya, namun lebih agak advanced dikit, yaitu menggunakan css @ (at-rules) @keyframes lalu kita bisa memberi nama pada si rules tersebut sesuai dengan keinginan kita */
+
+    @keyframes loncat {
+      /* from {
+
+      }
+      to {
+
+      } */
+
+      /* selain pake from-to apabila kita ingin modifikasi dibagi menjadi beberapa segmen sesuai dengan timeline si animasinya, kita bisa pake percentage kaya gini */
+
+      0%, 20%, 50%, 80%, 100% {
+        transform: translate(20px, 0)
+      }
+      
+      60% {
+        transform: translateY(75px);
+      }
+    }
+
+    .teks-loncat {
+      /* animation: <nama keyframes yang dibikin> <durasi> <delay> <mau berapa kali animasinya diulang, defaultnya 1 kali ajah, kalau mau terus menerus pake infinite> */
+      animation: loncat 2s 1s infinite;
+    }
+
+    @keyframes gerak-ke-kanan {
+      from {
+        transform: translatex(0px);
+      }
+      to {
+        transform: translatex(50px);
+      }
+    }
+
+    .lato-kiri {
+      display: inline-block;
+      animation: gerak-ke-kanan 1s infinite;
+    }
+
+    @keyframes gerak-ke-kiri {
+      from {
+        transform: translateX(50px);
+      }
+      to {
+        transform: translateX(0px);
+      }
+    }
+
+    .lato-kanan {
+      display: inline-block;
+      animation: gerak-ke-kiri 1s infinite;
+    }
+
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1; /* 1 atau 100%*/
+      }
+    }
+
+    .fade-in {
+      animation: fade-in 2s ease-in-out ;
+    }
+
+    @keyframes fade-out {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0; /* 1 atau 100%*/
+      }
+    }
+    .fade-out {
+      animation: fade-out 2s ease-out;
+    }
+
+    @keyframes slide-in {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+    .slide-in {
+      /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+      animation: slide-in 1s ease-out;
+    }
+
+    @keyframes muter {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    .muter {
+      animation: muter 3s linear infinite;
+    }
+
+    @keyframes berdebar-debar {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(1.5)
+      }
+    }
+    .berdebardebar {
+      animation: berdebar-debar 1s infinite;
+    }
+	</style>
+	<body>
+		<div>
+			<h1>Animasi</h1>
+			<p>animasi pada web development umumnya diterapkan dengan menggunakan sebuah javascript package /sdk (software development package) seperti gsap(greensock animation platform), framer motion dan lain lain, namun sebetulnya kita juga bisa membuatnya sendiri dengan bantuan css sederhana</p>
+      <p> contoh yang paling sederhana dan paling mudah dimengerti itu mungkin penerapan bounce</p>
+
+      <h3 class="teks-loncat">Kutu Loncat </h3>
+
+      <p>lato-lato</p>
+      <span class="lato-kiri">O</span><span class="lato-kanan">O</span>
+
+      <p> ada banyak yang bisa kita lakukan dengan animasi, kita bisa implementasi pada elemen yang kita mau, namun jangan terlalu berlebihan dalam implementasi animasi, karena ini website bukan powerpoint</p>
+      <p>biasanya animasi yang sering digunakan ada beberapa</p>
+      <h1 class="fade-in">Fade IN</h1>
+      <h1 class="fade-out">Fade OUT</h1>
+      <h1 class="slide-in">Slide IN</h1>
+
+      <img class="muter" src="https://w7.pngwing.com/pngs/802/825/png-transparent-redbubble-polite-cat-meme-funny-cat-meme-thumbnail.png" height="100px" />
+
+      
+      <img class="berdebardebar" src="https://png.pngtree.com/element_our/20190603/ourmid/pngtree-heart-human-organs-illustration-image_1463689.jpg" height="50px"/>
+	</body>
+</html>
