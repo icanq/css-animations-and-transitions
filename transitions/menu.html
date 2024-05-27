@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<style>
+			@import url("https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap");
+
+			body {
+				background-color: #001111;
+				color: white;
+				font-family: "Reddit Mono", "Arial";
+			}
+
+			button {
+				color: 001111;
+			}
+			button:hover {
+				color: red;
+			}
+
+			.menu {
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.5s ease;
+			}
+			.menu.open {
+				max-height: 200px;
+			}
+		</style>
+
+		<title>Menu dan Navigasi</title>
+	</head>
+	<body>
+		<a href="./index.html"> < </a>
+		<h1>Menu dan Navigasi</h1>
+		<h2 onclick="toggleMenu()">Buka menu</h2>
+		<div class="menu">
+			<p>Menu 1</p>
+			<p>Menu 2</p>
+			<p>Menu 3</p>
+		</div>
+	</body>
+	<script>
+		function toggleMenu() {
+			document.querySelector(".menu").classList.toggle("open");
+		}
+	</script>
+</html>
