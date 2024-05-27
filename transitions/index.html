@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Transisi</title>
+	</head>
+	<style>
+		@import url("https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap");
+
+		body {
+			background-color: #001111;
+			color: white;
+			font-family: "Reddit Mono", "Arial";
+		}
+
+		h1 {
+			color: yellow;
+			transition: color 0.3s ease;
+		}
+
+		h1:hover {
+			color: green;
+		}
+
+		.img-frieren {
+			width: 200px;
+			border-style: solid;
+			border-width: 5px;
+			border-color: red;
+			opacity: 100%;
+		}
+
+		.img-frieren:hover {
+			height: 250px;
+			width: auto;
+			opacity: 0%;
+			transition: height 0.5s ease, width 2s ease, opacity 2s ease-out;
+		}
+	</style>
+	<body>
+		<div>
+			<h1>Transisi</h1>
+			<span
+				>cara membuat/implementasi transisi dengan menggunakan css doang itu
+				cukup mudah, gimana caranya? kita akan bahas langsung abis ini</span
+			>
+			<span
+				>di css kita tinggal semat beberapa baris kode dalam .class atau
+				langsung via tag htmlnya atau bisa lewat #id</span
+			>
+			<br />
+			<br />
+			<span>
+				transition: [css-property yang mau di transisiin [durasi transisi]
+				[transisi-timing-function]
+			</span>
+			<br />
+			<br />
+
+			<code> .class-transisi { transition: color 0.3s ease; } </code>
+
+			<br />
+			<br />
+			<img
+				class="img-frieren"
+				src="https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/01/2024/03/18/Desain-tanpa-judul_20240315_232922_0000-1082056476.jpg"
+				height="200px"
+			/>
+		</div>
+	</body>
+</html>
