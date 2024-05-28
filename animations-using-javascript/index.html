@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Intro to Animation using JavaScript</title>
+		<style>
+			@import url("https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap");
+
+			body {
+				height: 100%;
+				margin: 0;
+				background-color: #001111;
+				color: white;
+				font-family: "Reddit Mono", Arial, sans-serif;
+				transition: background-color 0.3s, color 0.3s;
+			}
+
+			h1 {
+				margin-left: 1em;
+				color: yellow;
+				transition: color 0.3s ease;
+			}
+
+			h1:hover {
+				color: green;
+			}
+
+			p {
+				margin-left: 2em;
+			}
+
+			@keyframes fadeIn {
+				from {
+					opacity: 0;
+				}
+				to {
+					opacity: 1;
+				}
+			}
+
+			.fade-in {
+				animation: fadeIn 2s 1s ease-out infinite;
+			}
+
+			.teks-ijo {
+				color: green;
+			}
+
+			.light-mode {
+				background-color: white;
+				color: black;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Animasi Menggunakan JavaScript</h1>
+		<p>
+			Pada intinya, Animasi JavaScript itu tentang mengubah HTML atau CSS
+			element/property pada setiap waktu/ waktu tertentu, bisa berupa pergerakan
+			sebuah elemen, bisa juga berupa ngatur elemennya ngilang dulu terus balik
+			lagi, yang jelas animasi pada JavaScript itu mengubahnya di bagian file
+			JavaScriptnya atau dalam yang ada di file html kamu. Kenapa pake
+			JavaScript? karena kamu bisa lebih leluasa dalam mengatur setiap elemen
+			yang ada pada web yang kamu buat melalui yang namanya DOM (Document Object
+			Model) dan kamu bisa set animasinya sesuai dengan ketentuan tertentu
+			sehingga bisa jadi lebih dinamis.
+		</p>
+
+		<h2 id="text-ijo" class="teks-ijo">Ini teks warnanya ijo</h2>
+
+		<button id="toggleMode">Change Mode</button>
+
+		<script>
+			// basic javascript animation dengan manipulasi css pada suatu elemen html
+
+			// step 1  buat animasiin atau bikin transisi pake javascript, kita harus bikin yang namanya selector dulu, lalu ditampung di sebuah variable
+
+			const textIjo = document.querySelector("#text-ijo");
+
+			// setelah itu kita hanya perlu untuk mengubah style atau menambahkan class ke html element yang dipilih/selected element
+			textIjo.classList.add("fade-in");
+
+			// console.log dipake buat ngecek apa elemen yang dipilih ada atau nggak ada
+			// console.log("selected element: ", textIjo);
+
+			// dark mode
+			// selector
+			const toggleModeButton = document.getElementById("toggleMode");
+
+			toggleModeButton.addEventListener("click", () => {
+				document.body.classList.toggle("light-mode");
+				console.log(document.body);
+			});
+		</script>
+	</body>
+</html>
