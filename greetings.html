@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Greeting Landing Loading</title>
+	</head>
+	<style>
+		body,
+		html {
+			height: 100%;
+			margin: 0;
+			justify-content: center;
+			align-items: center;
+		}
+		#greeting-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+		}
+		#greeting-text {
+			font-size: 2em;
+			font-family: "Helvetica";
+			transition: opacity 0.3s ease-in-out;
+		}
+	</style>
+	<body>
+		<div id="greeting-container">
+			<span id="greeting-text">Hello</span>
+		</div>
+	</body>
+	<script>
+		const greetings = [
+			"Hello",
+			"Hi",
+			"Bonjour",
+			"Hallo",
+			"Ciao",
+			"こんにちは",
+			"안녕하세요",
+			"مرحب",
+			"kumaha",
+		];
+
+		let currentGreetingIndex = 1;
+		let intervalId;
+
+		const greetingText = document.getElementById("greeting-text");
+
+		const changeGreeting = () => {
+			greetingText.style.opacity = 0; // start fade out
+			setTimeout(() => {
+				currentGreetingIndex = (currentGreetingIndex + 1) % greetings.length;
+				greetingText.textContent = greetings[currentGreetingIndex];
+				greetingText.style.opacity = 1; // start fade in
+			}, 300); // delay dari time out harus disesuain sama sama yg di transition di atas
+		};
+
+		function startGreetingCycle() {
+			intervalId = setInterval(changeGreeting, 100);
+		}
+
+		function stopGreetingCycle() {
+			clearInterval(intervalId);
+		}
+
+		greetingText.addEventListener("mouseenter", stopGreetingCycle);
+		greetingText.addEventListener("mouseleave", startGreetingCycle);
+		startGreetingCycle();
+	</script>
+</html>
