@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Greetings in Multiple Languages</title>
+		<style>
+			@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap");
+
+			body,
+			html {
+				height: 300vh; /* Increase height to allow scrolling */
+				margin: 0;
+				font-family: Arial, sans-serif;
+				background: #000; /* Set background color to match the example */
+				overflow: auto;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			#greeting-container {
+				position: fixed; /* Fix the text position */
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				text-align: center;
+				color: white; /* Set text color to white */
+			}
+			#greeting-text {
+				font-size: 2em;
+				font-family: "Helvetica";
+				transition: opacity 0.3s ease-in-out;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="greeting-container">
+			<span id="greeting-text">Hello</span>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+		<script>
+			const greetings = [
+				"Hello",
+				"Hola",
+				"Bonjour",
+				"Hallo",
+				"Ciao",
+				"こんにちは",
+				"안녕하세요",
+				"您好",
+				"Привет",
+				"مرحبا",
+				"Γειά",
+				"שלום",
+				"नमस्ते",
+				"สวัสดี",
+				"Hej",
+			];
+
+			let currentGreetingIndex = 0;
+			const greetingText = document.getElementById("greeting-text");
+
+			function changeGreeting() {
+				gsap.to(greetingText, {
+					opacity: 0,
+					duration: 0.3,
+					onComplete: updateGreeting,
+				});
+			}
+
+			function updateGreeting() {
+				currentGreetingIndex = (currentGreetingIndex + 1) % greetings.length;
+				greetingText.textContent = greetings[currentGreetingIndex];
+				gsap.to(greetingText, { opacity: 1, duration: 0.3 });
+			}
+
+			// GSAP ScrollTrigger setup
+			gsap.registerPlugin(ScrollTrigger);
+
+			ScrollTrigger.create({
+				start: 0,
+				end: "max",
+				scrub: false,
+				onUpdate: (self) => {
+					const progress = self.progress * (greetings.length - 1);
+					const newGreetingIndex = Math.floor(progress);
+
+					if (newGreetingIndex !== currentGreetingIndex) {
+						currentGreetingIndex = newGreetingIndex;
+						changeGreeting();
+					}
+				},
+			});
+
+			// Initial greeting
+			changeGreeting();
+		</script>
+	</body>
+</html>
