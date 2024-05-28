@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Implementasi AOS (Animate On Scroll)</title>
+	</head>
+	<!-- 1. import css aos-nya -->
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+	<style>
+		body,
+		html {
+			height: 100%;
+			margin: 0;
+			font-family: Helvetica, Arial, sans-serif;
+		}
+
+		.container {
+			height: 200vh;
+			/* dibikin 200vh biar seolah olah si pagenya panjang kebawah, nanti kalau misal kalian udah bikin web tapi webnya udah ada/ udah bisa scroll bisa kalian gausah di set si height ini */
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.box {
+			margin: 20px;
+			padding: 20px;
+			background: #f0f0ff;
+			border: 1px solid black;
+			width: 50%;
+			max-width: 600px;
+			text-align: center;
+		}
+	</style>
+	<body>
+		<div class="container">
+			<h1>Scroll buat liat si animasinya</h1>
+			<!-- 4. tambahin si data-aos di htmlnya, tambahinnya di div/ container -->
+			<div id="box1" class="box" data-aos="fade-up" data-aos-duration="3000">
+				Fade Up
+			</div>
+			<div id="box2" class="box"><h1 data-aos="fade-left">Fade Left</h1></div>
+			<div id="box3" class="box" data-aos="flip-left">Flip Left</div>
+			<div id="box4" class="box" data-aos="zoom-in">Zoom In</div>
+			<img
+				src="https://upload.wikimedia.org/wikipedia/en/thumb/4/42/Casper_%28character%29.png/220px-Casper_%28character%29.png"
+				data-aos="slide-right"
+				width="50px"
+			/>
+		</div>
+	</body>
+	<!-- 2. import js aosnya -->
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+		// 3. init si AOS nya
+		AOS.init({
+			duration: 1200,
+		});
+	</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Kotak yang berpindah</title>
+	</head>
+	<body>
+		<div
+			id="movingBox"
+			style="
+				width: 100px;
+				height: 100px;
+				background-color: blue;
+				position: absolute;
+			"
+		></div>
+	</body>
+	<script>
+		let posisiAwal = 0;
+		const movingBox = document.getElementById("movingBox");
+		// setInterval(function () {
+		// 	posisiAwal += 5;
+		// 	document.getElementById("movingBox").style.left = posisiAwal + "px";
+		// }, 100);
+
+		function movingRight() {
+			posisiAwal += 5;
+			document.getElementById("movingBox").style.left = posisiAwal + "px";
+			requestAnimationFrame(movingRight);
+		}
+		requestAnimationFrame(movingRight);
+	</script>
+</html>
